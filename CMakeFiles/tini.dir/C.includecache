@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ashish/workspace/tini/src/tini.c
+sys/types.h
+-
+sys/wait.h
+-
+sys/prctl.h
+-
+assert.h
+-
+errno.h
+-
+signal.h
+-
+string.h
+-
+time.h
+-
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+stdbool.h
+-
+tiniConfig.h
+/home/ashish/workspace/tini/src/tiniConfig.h
+tiniLicense.h
+/home/ashish/workspace/tini/src/tiniLicense.h
+
+/home/ashish/workspace/tini/src/tiniLicense.h
+
+tiniConfig.h
+

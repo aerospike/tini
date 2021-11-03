@@ -1,0 +1,1 @@
+/usr/bin/cc -DPR_SET_CHILD_SUBREAPER=36 -DPR_GET_CHILD_SUBREAPER=37 -std=gnu99 -Werror -Wextra -Wall -pedantic-errors -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat  -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-s -rdynamic -Wl,--no-export-dynamic -static CMakeFiles/tini-static.dir/src/tini.c.o -o tini-static 

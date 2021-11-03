@@ -1,0 +1,10 @@
+/home/ashish/workspace/tini/CMakeFiles/install/strip.dir
+/home/ashish/workspace/tini/CMakeFiles/edit_cache.dir
+/home/ashish/workspace/tini/CMakeFiles/package_source.dir
+/home/ashish/workspace/tini/CMakeFiles/install.dir
+/home/ashish/workspace/tini/CMakeFiles/list_install_components.dir
+/home/ashish/workspace/tini/CMakeFiles/rebuild_cache.dir
+/home/ashish/workspace/tini/CMakeFiles/package.dir
+/home/ashish/workspace/tini/CMakeFiles/tini-static.dir
+/home/ashish/workspace/tini/CMakeFiles/install/local.dir
+/home/ashish/workspace/tini/CMakeFiles/tini.dir
