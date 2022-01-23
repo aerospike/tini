@@ -74,7 +74,7 @@ if [[ -n "${ARCH_NATIVE-}" ]]; then
   export PATH="${BIN_TEST_DIR}:${PATH}"
 
   # Smoke tests (actual tests need Docker to run; they don't run within the CI environment)
-  for tini in "${BUILD_DIR}/tini" "${BUILD_DIR}/tini-static"; do
+  for tini in "${BUILD_DIR}/as-tini" "${BUILD_DIR}/as-tini-static"; do
     echo "Smoke test for ${tini}"
     "$tini" --version
 
@@ -183,13 +183,13 @@ if [[ -n "${ARCH_NATIVE-}" ]]; then
   # Quick package audit
   if which rpm >/dev/null; then
     echo "Contents for RPM:"
-    rpm -qlp "${BUILD_DIR}/tini_${pkg_version}.rpm"
+    rpm -qlp "${BUILD_DIR}/as-tini_${pkg_version}.rpm"
     echo "--"
   fi
 
   if which dpkg >/dev/null; then
     echo "Contents for DEB:"
-    dpkg --contents "${BUILD_DIR}/tini_${pkg_version}.deb"
+    dpkg --contents "${BUILD_DIR}/as-tini_${pkg_version}.deb"
     echo "--"
   fi
 
@@ -229,7 +229,7 @@ elif [[ -z "$ARCH_NATIVE" ]]; then
   exit 1
 fi
 
-for build_tini in tini tini-static; do
+for build_tini in as-tini as-tini-static; do
   dist_tini="${build_tini}${SUFFIX}"
   cp "${BUILD_DIR}/${build_tini}" "${DIST_DIR}/${dist_tini}"
   DIST_TINIS+=("$dist_tini")
@@ -237,8 +237,8 @@ done
 
 if [[ -n "${ARCH_NATIVE-}" ]]; then
   for pkg_format in deb rpm; do
-    build_tini="tini_${pkg_version}.${pkg_format}"
-    dist_tini="tini_${pkg_version}${SUFFIX}.${pkg_format}"
+    build_tini="as-tini_${pkg_version}.${pkg_format}"
+    dist_tini="as-tini_${pkg_version}${SUFFIX}.${pkg_format}"
     cp "${BUILD_DIR}/${build_tini}" "${DIST_DIR}/${dist_tini}"
     DIST_TINIS+=("$dist_tini")
   done

@@ -1,10 +1,10 @@
 cmake_minimum_required (VERSION 2.8.0)
-project (tini C)
+project (as-tini C)
 
 # Config
-set (tini_VERSION_MAJOR 0)
-set (tini_VERSION_MINOR 19)
-set (tini_VERSION_PATCH 0)
+set (tini_VERSION_MAJOR 1)
+set (tini_VERSION_MINOR 0)
+set (tini_VERSION_PATCH 1)
 
 # Build options
 option(MINIMAL "Disable argument parsing and verbose output" OFF)
@@ -79,14 +79,14 @@ configure_file (
 
 include_directories ("${PROJECT_BINARY_DIR}")
 
-add_executable (tini src/tini.c)
+add_executable (as-tini src/tini.c)
 
-add_executable (tini-static src/tini.c)
-set_target_properties (tini-static PROPERTIES LINK_FLAGS "-Wl,--no-export-dynamic -static")
+add_executable (as-tini-static src/tini.c)
+set_target_properties (as-tini-static PROPERTIES LINK_FLAGS "-Wl,--no-export-dynamic -static")
 
 # Installation
-install (TARGETS tini DESTINATION bin)
-install (TARGETS tini-static DESTINATION bin)
+install (TARGETS as-tini DESTINATION bin)
+install (TARGETS as-tini-static DESTINATION bin)
 
 # Packaging
 include (InstallRequiredSystemLibraries)

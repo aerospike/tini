@@ -95,7 +95,7 @@ def test_tty_handling(img, name, base_cmd, fail_cmd, container_command, exit_fun
     shell_ready_event = threading.Event()
 
     def spawn():
-        cmd = base_cmd + ["--tty", "--interactive", img, "/tini/dist/tini"]
+        cmd = base_cmd + ["--tty", "--interactive", img, "/tini/dist/as-tini"]
         if os.environ.get("MINIMAL") is None:
             cmd.append("--")
         cmd.append(container_command)
@@ -202,7 +202,7 @@ def main():
     fail_cmd = ["docker", "kill", "-s", "KILL", name]
 
     # Funtional tests
-    for entrypoint in ["/tini/dist/tini", "/tini/dist/tini-static"]:
+    for entrypoint in ["/tini/dist/as-tini", "/tini/dist/as-tini-static"]:
         functional_base_cmd = base_cmd + [
             "--entrypoint={0}".format(entrypoint),
             "-e", "TINI_VERBOSITY=3",
@@ -242,7 +242,7 @@ def main():
     # Valgrind test (we only run this on the dynamic version, because otherwise Valgrind may bring up plenty of errors that are
     # actually from libc)
     Command(base_cmd + [img, "valgrind", "--leak-check=full",
-                        "--error-exitcode=1", "/tini/dist/tini", "ls"], fail_cmd).run()
+                        "--error-exitcode=1", "/tini/dist/as-tini", "ls"], fail_cmd).run()
 
     # Test tty handling
     test_tty_handling(img, name, base_cmd, fail_cmd,
@@ -257,7 +257,7 @@ def main():
             ["centos:6", "rpm", "rpm"],
             ["centos:7", "rpm", "rpm"],
     ]:
-        Command(base_cmd + [image, "sh", "-c", "{0} -i /tini/dist/*.{1} && /usr/bin/tini true".format(
+        Command(base_cmd + [image, "sh", "-c", "{0} -i /tini/dist/*.{1} && /usr/bin/as-tini true".format(
             pkg_manager, extension)], fail_cmd).run()
 
 

@@ -10,5 +10,12 @@ if [[ "$#" != 1 ]]; then
 fi
 suffix="$1"
 
-IMG="tini-build-${suffix}"
-python test/run_outer_tests.py "${IMG}"
+IMG="tini-build_${suffix}"
+
+PYTHON=python3.9
+
+if ! type "$PYTHON" > /dev/null; then
+	PYTHON=python
+fi
+
+$PYTHON test/run_outer_tests.py "${IMG}"

@@ -37,7 +37,7 @@ def main():
     args_disabled = os.environ.get("MINIMAL")
 
     proxy = os.path.join(src, "test", "subreaper-proxy.py")
-    tini = os.path.join(build, "tini")
+    tini = os.path.join(build, "as-tini")
 
     subreaper_support = bool(int(os.environ["FORCE_SUBREAPER"]))
 
@@ -47,7 +47,8 @@ def main():
         print("Running exit code test for {0}".format(tini))
         for code in range(0, 256):
             p = subprocess.Popen(
-                [tini, "-e", str(code), "--", "sh", "-c", "exit {0}".format(code)],
+                [tini, "-e", str(code), "--", "sh", "-c",
+                 "exit {0}".format(code)],
                 stdout=DEVNULL,
                 stderr=DEVNULL,
                 universal_newlines=True,
