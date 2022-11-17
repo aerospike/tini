@@ -20,7 +20,7 @@ This fork allows the child process to be restarted on a configurable signal that
 In Docker, you will want to use an entrypoint, so you don't have to remember to manually invoke Tini:
 
     # Add Tini
-    ENV TINI_VERSION v1.0.1
+    ENV TINI_VERSION v1.0.2
     ADD https://github.com/aerospike/tini/releases/download/${TINI_VERSION}/as-tini /as-tini
     RUN chmod +x /as-tini
     ENTRYPOINT ["/as-tini", "--"]
@@ -36,7 +36,7 @@ The `as-tini` and `as-tini-static` binaries have generated checksums (`SHA1` and
 You can verify their checksums using `sha1sum` and `sha256sum` (which you may install using
 your package manager):
 
-    ENV TINI_VERSION v1.0.1
+    ENV TINI_VERSION v1.0.2
     RUN wget --no-check-certificate --no-cookies --quiet https://github.com/aerospike/tini/releases/download/${TINI_VERSION}/as-tini \
         && wget --no-check-certificate --no-cookies --quiet https://github.com/aerospike/tini/releases/download/${TINI_VERSION}/as-tini.sha256sum \
         && echo "$(cat as-tini.sha256sum)" | sha256sum -c
